@@ -83,8 +83,21 @@ bool bucketsort(int *array, const int len)
             p = p->next;
         }
     }
+    for (int i = 0; i < 512; i++) //释放分配的链表
+    {
+        p = pNode[i];
 
+        while (NULL != p) 
+        {
+            tNode *tmp = NULL;
+            tmp = p;
+            p = p->next;
+            delete tmp;
+        }
+    }
+    delete[] pNode;
     return true;
+
 }
 
 int main() {
