@@ -1,14 +1,19 @@
 // 注意算法的通常模式，首先是算法的主要思想，先干什么再做什么，是否需要多余的辅助空间，这一切都准备好
 //然后，某些函数的参数或者是条件也要准备好，想好如何划分函数和循环
 //最后，注意一些边界情况的处理，比如数组靠近边界怎么办，空链表怎么办等情况
-
+//自顶向下还是自下而上的方法，
+//1.迭代式方法是，先准备好一重循环也就是要归并的次数，用seg来决定，还需要准备好辅助空间
+//2.然后是找到当前迭代中归并的起始位置，使用+2seg来决定
+//3.根据每两个向量的起始位置，开始归并，比较大小，如果都不为空，则是比较大小，小的先输出
+//4.输出完之后，还需要把指针换一下，辅助空间和原空间是调换的
+//5.最后来个判断，看一下最终array数组是不是最终的辅助数组（存着结果），如果不是，就把辅助数组里面的值赋给array，然后删除辅助数组
 
 #include <iostream>
 #include <algorithm>
 
 using namespace std;
 
-template<typename T> //自下而上的迭代
+template<typename T> //自下而上的迭代，两个两个的合并
 void mergesort_iteration(T array[], int len)
  {
     T* a = array;      
@@ -37,7 +42,8 @@ void mergesort_iteration(T array[], int len)
         a = b;
         b = temp;
     }
-    if (a != array)   //如果a指针最后没指回去，说明a那时候是辅助空间，需要把元素都赋给原来array（也就是现在的b）
+    //每一轮迭代之后是会互换的，若以a若不是array，则说明互换前a是array，那么结果都存在另一个辅助数组，所以需要赋值回来
+    if (a != array)   
     {
         for (int i = 0; i < len; i++)
             b[i] = a[i];
@@ -48,7 +54,7 @@ void mergesort_iteration(T array[], int len)
 }
 
 
-template<typename T>  //自上而下的递归
+template<typename T>  //自上而下的递归 ，逐渐二分
 void mergesort_recursive_t(T array[], T reg[], int start, int end) //后面两个是数组中元素的起始位置，与结尾位置
 {
     if (start >= end)   //递归基，直到还有一个元素的时候停止使用
