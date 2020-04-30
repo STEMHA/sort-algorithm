@@ -1,16 +1,17 @@
 ## 排序算法比较
-|排序算法|平均时间复杂度|最佳时间复杂度|最坏时间复杂度|空间复杂度|辅助数据结构|
-|:-|:-|:-|:-|:-|:-|
-|冒泡排序|O(n<sup>2</sup>)|O(n)|O(n<sup>2</sup>)|O(1)|相邻元素用于swap的一个空间|
-|插入排序|O(n<sup>2</sup>)|O(n)|O(n<sup>2</sup>)|O(1)|用于插入数key的副本|
-|选择排序|O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(1)|用于找出最大值的一个max|
-|快速排序|O(n log n)|O(n log n)|O(n<sup>2</sup>)|O(log n)|用于保存基准值的副本|
-|归并排序|O(n log n)|O(n log n)|O(n log n)|O(n)|
-|堆排序|O(n log n)|O(n log n)|O(n log n)|O(1)|堆顶堆尾用于swap的一个空间|
-|桶排序|O(n+m)|O(n+m)|O(n<sup>2</sup>)|O(n+m)| |
-|基数排序|O(n×k)|O(n×k)|O(n×k)|O(n+k)||
-|计数排序|Ο(n+k)|Ο(n+k)|Ο(n+k)|Ο(k)|其中k是整数的范围）|
-|希尔排序|O(n·log2n)|||O(1)|相邻元素用于swap的一个空间|
+|排序算法|平均时间复杂度|最佳时间复杂度|最坏时间复杂度|空间复杂度|排序方式|辅助数据结构|
+|:-|:-|:-|:-|:-|:-|:-|
+|冒泡排序|O(n<sup>2</sup>)|O(n)|O(n<sup>2</sup>)|O(1)|in-place|相邻元素用于swap的一个空间|
+|插入排序|O(n<sup>2</sup>)|O(n)|O(n<sup>2</sup>)|O(1)|in-place|用于插入数key的副本|
+|选择排序|O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(n<sup>2</sup>)|O(1)|in-place|用于找出最大值的一个max|
+|希尔排序|O(n·log n)|n·log n|n·log n|O(1)|in-place|相邻元素用于swap的一个空间|
+|快速排序|O(n log n)|O(n log n)|O(n<sup>2</sup>)|O(log n)|in-place|用于保存基准值的副本|
+|堆排序|O(n log n)|O(n log n)|O(n log n)|O(1)|in-place|堆顶堆尾用于swap的一个空间|
+|归并排序|O(n log n)|O(n log n)|O(n log n)|O(n)|out-place|
+|桶排序|O(n+k)|O(n+k)|O(n<sup>2</sup>)|O(n+k)| out-place|
+|基数排序|O(n×k)|O(n×k)|O(n×k)|O(n+k)|out-place|
+|计数排序|Ο(n+k)|Ο(n+k)|Ο(n+k)|Ο(k)|out-place|其中k是整数的范围）|
+
 
 ## 基本概念
 ### 局部有序与整体有序
